@@ -29,8 +29,8 @@ const userSchema = new mongoose.Schema({
 
     workshops: [{
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'workshop'
+        ref: 'Workshop'
     }]
 });
 
-export const User = mongoose.model('user', userSchema);
+export const User = mongoose.model('User', userSchema);

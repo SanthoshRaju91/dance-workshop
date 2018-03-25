@@ -4,9 +4,48 @@ type Workshop {
     venue: String!
     map: String!
     description: String!
-    fees: Number!
+    fees: Int!
     currency: String!
     images: [String]
     banner: String
-    by: String!
+    by: [User!]
+    schedule: String
+}
+
+input NewWorkshop {
+    name: String!
+    venue: String!
+    map: String!
+    description: String!
+    fees: Int!
+    currency: String!
+    images: [String]
+    banner: String
+    by: UpdateUser!
+    schedule: String
+}
+
+input UpdateWorkshop {
+    id: ID!
+    name: String
+    venue: String
+    map: String
+    description: String
+    fees: Int
+    currency: String
+    images: [String]
+    banner: String
+    by: [UpdateUser]
+    schedule: String
+}
+
+extend type Query {
+    getAllWorkshops: [Workshop]!
+    getWorkshop(id: ID!): Workshop!
+}
+
+extend type Mutation {
+    createNewWorkshop(input: NewWorkshop!): Workshop!
+    updateWorkshop(input: UpdateWorkshop): Workshop!
+    deleteWorkshop(id: ID!): Workshop!
 }

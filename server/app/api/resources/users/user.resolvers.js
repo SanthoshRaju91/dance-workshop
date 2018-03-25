@@ -1,8 +1,7 @@
-import Controller from './user.controller';
 import { User } from './user.model';
 import { controller } from '../../modules/query';
 
-const getUser = async (_, { id }) => {  
+const getUser = async (root, { id }) => {  
   const user = await controller.findByParam(User, id);
 
   if(!user) {

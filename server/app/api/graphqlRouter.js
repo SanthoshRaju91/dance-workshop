@@ -3,7 +3,8 @@ import merge from 'lodash.merge';
 import { graphqlExpress } from 'apollo-server-express'
 import { userResolvers } from './resources/users/user.resolvers';
 import userType from './resources/users/user.graphql';
-
+import { workshopResolvers } from './resources/workshops/workshop.resolvers';
+import workshopType from './resources/workshops/workshop.graphql';
 
 // base / root schema for graphql
 const baseSchema = `
@@ -17,12 +18,14 @@ const baseSchema = `
 const schema = makeExecutableSchema({
     typeDefs: [
         baseSchema,
-        userType
+        userType,
+        workshopType
     ],
 
     resolvers: merge(
         {},
-        userResolvers
+        userResolvers,
+        workshopResolvers
     )
 });
 
