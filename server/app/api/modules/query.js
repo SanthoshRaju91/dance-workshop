@@ -28,6 +28,9 @@ export const controller = {
 }
 
 export const createOne = (model) => (req, res, next) => {
+    console.log(req);
+    console.log(res);
+    console.log(next);
     return controller.createOne(model, req.body)
         .then(doc => res.status(201).json(doc))
         .catch(error => next(error));
@@ -75,7 +78,7 @@ export const findByParam = (model) => (req, res, next, id) => {
         })
 }
 
-export const generateControllers = (mode, overrides = {} ) => {
+export const generateControllers = (model, overrides = {} ) => {
     const defaults = {
         findByParam: findByParam(model),
         getAll: getAll(model),

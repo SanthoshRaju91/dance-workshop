@@ -2,6 +2,8 @@ import express from 'express';
 import { graphiqlExpress } from 'apollo-server-express';
 import middleware from './middleware';
 import { connect } from './db';
+import { graphQLRouter } from './api';
+import helmet from 'helmet';
 
 const app = express();
 const env = process.env.NODE_ENV || 'development';
@@ -11,9 +13,12 @@ const envPossibles = ['prod', 'production'];
 middleware(app);
 connect();
 
+app.use(helmet.xssFilter());
+app.use('/graphql', graphQLRouter);
 if(envPossibles.indexOf(env) < 0 ) {
     app.use('/docs', graphiqlExpress({ endpointURL: '/graphql'}));    
 }
+
 
 // match any unrecognized patterns.
 app.all('*', (req, res) => {

@@ -1,0 +1,1 @@
+export { graphQLRouter } from './graphqlRouter';

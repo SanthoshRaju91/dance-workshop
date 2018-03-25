@@ -1,0 +1,12 @@
+type Workshop {
+    id: ID!
+    name: String!
+    venue: String!
+    map: String!
+    description: String!
+    fees: Number!
+    currency: String!
+    images: [String]
+    banner: String
+    by: String!
+}
