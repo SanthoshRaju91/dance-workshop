@@ -3,7 +3,7 @@ import merge from 'lodash.merge';
 const env  = process.env.NODE_ENV;
 
 const baseConfig = {
-    port: 3000,
+    port: 5000,
     secrets: {},
     db: {
         url: 'mongodb://localhost:27017/dance'

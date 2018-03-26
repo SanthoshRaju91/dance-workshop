@@ -1,7 +1,23 @@
 {
   "name": "client",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "Santhosh Raju <santhoshraju.ai@gmail.com>",
-  "license": "MIT"
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "apollo-link-http": "^1.5.3",
+    "react-scripts": "1.1.1"
+  },
+  "dependencies": {
+    "apollo-client-preset": "^1.0.8",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.8.0",
+    "react": "^16.2.0",
+    "react-apollo": "^2.1.0",
+    "react-dom": "^16.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
 }
